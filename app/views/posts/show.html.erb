@@ -1,0 +1,36 @@
+<!-- This shows the individual post -->
+<h1><%= @post.title %></h1>
+
+<p><%= @post.body %></p>
+
+<p><%= @post.user.name %></p>
+
+
+
+<% @post.comments.each do |comment| %>
+	<div>
+		<h4><%= "Comment by #{comment.user.name}" %></h4>
+		<p><%= comment.description %></p>
+		<p><%= link_to "Delete", delete_comment_path(comment), method: :delete, data: {confirm: "Are you sure"} %></p>
+	</div>
+<% end %>
+
+<section>
+	<h2>Add a new comment!</h2>
+		 <%= form_for [@post, @comment] do |f| %> 
+		       
+	    <div>
+	        <%= f.label :description, "Comment", class: "form-label" %> 
+	        <%= f.text_area :description, class: "text-area" %>
+	    </div>
+
+	    <div>
+	        <%= f.submit "Add a comment!", class: "button" %>
+	    </div>
+
+	<% end %>
+</section>
+
+<%= link_to "Home", posts_path %>
+<%= link_to "Edit", edit_post_path %>
+<%= link_to "Delete", post_path, method: :delete, data: {confirm: "Are you sure?"} %>

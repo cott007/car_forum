@@ -1,0 +1,18 @@
+<!-- This is the page to make new posts -->
+<h1>New Posts</h1>
+
+<%= form_for @post do |f| %>
+
+	<div>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
+
+	<div>
+		<%= f.label :body %>
+		<%= f.text_area :body %>
+	</div>
+
+	<%= f.submit "Add new post!" %>
+	<%= link_to "Back to the list!", posts_path %>
+<% end %>

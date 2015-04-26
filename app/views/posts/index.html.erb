@@ -1,0 +1,13 @@
+<!-- This will show all the posts and be the main page -->
+<h1>This is the index page for posts</h1>
+
+<ul>
+	<% @posts.each do |thread| %>
+		<li>
+			<%= link_to "#{thread.title}", post_path(thread) %>
+			Created <%= time_ago_in_words(thread.created_at) %> ago
+		</li>
+	<% end %>
+
+	<%= link_to "Add new post!", new_post_path  %>	
+</ul>
