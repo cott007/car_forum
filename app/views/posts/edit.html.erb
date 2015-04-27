@@ -1,7 +1,7 @@
 <!-- This allows you to edit the post -->
 <h1>Edit this Post!</h1>
 
-<%= form_for @post do |f| %>
+<%= form_for @post, html: { multipart: true } do |f| %>
 
 	<div>
 		<%= f.label :title %>
@@ -11,6 +11,11 @@
 	<div>
 		<%= f.label :body %>
 		<%= f.text_area :body %>
+	</div>
+
+	<div>
+		<%= f.label :image %>
+		<%= f.file_field :image %>
 	</div>
 
 	<%= f.submit "Sumbit these changes!" %>

@@ -3,8 +3,16 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-# Use sqlite3 as the database for Active Record
+# # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+gem 'sqlite3', group: :development
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -29,8 +37,15 @@ gem 'bcrypt', '~> 3.1.7'
 # bootstrap
 gem 'bootstrap-sass'
 
-#carrierwave
-gem 'carrierwave'
+# Gemfile for images
+gem "paperclip", "~> 4.2"
+gem 'aws-sdk'
+
+# ##### CarrierWave Gems #####
+# gem 'carrierwave'
+
+# gem 'fog'         # required for Amazon S3
+# gem 'rmagick'     # for post-upload image processing
 
 # Use Unicorn as the app server
 # gem 'unicorn'
